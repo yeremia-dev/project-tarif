@@ -17,3 +17,17 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('tarifdokumen', 'API\DataTarifController@getTarifDokumen');
+Route::get('tarifmakanan', 'API\DataTarifController@getTarifMakanan');
+Route::get('tarifnonmakanan', 'API\DataTarifController@getTarifNonMakanan');
+
+Route::get('asalpengiriman', 'API\BaseDataController@getAsalPengiriman');
+Route::get('beratdokumen', 'API\BaseDataController@getBeratDokumen');
+Route::get('tujuandokumen', 'API\BaseDataController@getTujuanDokumen');
+Route::get('tujuanmakanan', 'API\BaseDataController@getTujuanMakananNonMakanan');
+
+Route::get('find/asal/{id}', 'API\BaseDataController@findAsalPengiriman');
+Route::get('find/berat/{id}', 'API\BaseDataController@findBeratDokumen');
+Route::get('find/tujuandokumen/{id}', 'API\BaseDataController@findTujuanDokumen');
+Route::get('find/tujuanmakanan/{id}', 'API\BaseDataController@findTujuanMakananNonMakanan');
