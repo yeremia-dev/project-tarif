@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\AsalPengiriman;
 use App\BeratDokumen;
 use App\Http\Controllers\Controller;
+use App\Kategori;
 use App\TujuanDokumen;
 use App\TujuanMakananNonMakanan;
 use Illuminate\Http\Request;
@@ -35,6 +36,13 @@ class BaseDataController extends Controller
         $tujuan_makanan_non_makanan = TujuanMakananNonMakanan::all();
         return response()->json($tujuan_makanan_non_makanan->toArray());
     }
+
+    public function getKategori()
+    {
+        $kategori = Kategori::all();
+        return response()->json($kategori->toArray());
+    }
+
 
     public function findAsalPengiriman($id)
     {

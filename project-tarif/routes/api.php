@@ -26,6 +26,7 @@ Route::get('asalpengiriman', 'API\BaseDataController@getAsalPengiriman');
 Route::get('beratdokumen', 'API\BaseDataController@getBeratDokumen');
 Route::get('tujuandokumen', 'API\BaseDataController@getTujuanDokumen');
 Route::get('tujuanmakanan', 'API\BaseDataController@getTujuanMakananNonMakanan');
+Route::get('kategori', 'API\BaseDataController@getKategori');
 
 Route::get('find/asal/{id}', 'API\BaseDataController@findAsalPengiriman');
 Route::get('find/berat/{id}', 'API\BaseDataController@findBeratDokumen');
