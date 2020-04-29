@@ -7,6 +7,7 @@ use App\BeratDokumen;
 use App\Http\Controllers\Controller;
 use App\Kategori;
 use App\TujuanDokumen;
+use App\TujuanMakanan;
 use App\TujuanMakananNonMakanan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -35,6 +36,12 @@ class BaseDataController extends Controller
     {
         $tujuan_makanan_non_makanan = TujuanMakananNonMakanan::all();
         return response()->json($tujuan_makanan_non_makanan->toArray());
+    }
+
+    public function getTujuanMakanan()
+    {
+        $tujuan_makanan = TujuanMakanan::all();
+        return response()->json($tujuan_makanan->toArray());
     }
 
     public function getKategori()

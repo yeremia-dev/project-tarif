@@ -2007,6 +2007,62 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2018,15 +2074,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     return {
       kategori: [],
       asal_pengiriman: [],
-      tujuan_dokumen: [],
-      tujuan_makanan_non: [],
+      tujuan: [],
       berat: [],
       id_berat: 0,
       id_kategori: 0,
       id_asal: 0,
-      id_tujuan_dokumen: 0,
-      id_tujuan_makanan_non: 0,
-      berat_paket: 0
+      id_tujuan: 0,
+      berat_paket: 0,
+      tarif_makanan: [],
+      tarif_berat: [],
+      tarif_non_makanan: [],
+      total: 0,
+      sudah_dipilih: false,
+      berat_makanan: false,
+      berat_dokumen: false
     };
   },
   mounted: function mounted() {
@@ -2052,7 +2113,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        var beratnya, asalnya, tujuannya_dok, tujuannya_makanan_non, kategorinya;
+        var beratnya, asalnya, kategorinya;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
@@ -2068,33 +2129,183 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 5:
                 asalnya = _context2.sent;
                 _context2.next = 8;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://localhost:8000/api/tujuandokumen');
-
-              case 8:
-                tujuannya_dok = _context2.sent;
-                _context2.next = 11;
-                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://localhost:8000/api/tujuanmakanan');
-
-              case 11:
-                tujuannya_makanan_non = _context2.sent;
-                _context2.next = 14;
                 return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://localhost:8000/api/kategori');
 
-              case 14:
+              case 8:
                 kategorinya = _context2.sent;
                 _this2.berat = beratnya.data;
                 _this2.asal_pengiriman = asalnya.data;
-                _this2.tujuan_dokumen = tujuannya_dok.data;
-                _this2.tujuan_makanan_non = tujuannya_makanan_non.data;
                 _this2.kategori = kategorinya.data;
 
-              case 20:
+              case 12:
               case "end":
                 return _context2.stop();
             }
           }
         }, _callee2);
       }))();
+    },
+    loadTujuanDok: function loadTujuanDok() {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var tujuannya;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://localhost:8000/api/tujuandokumen');
+
+              case 2:
+                tujuannya = _context3.sent;
+                _this3.tujuan = tujuannya.data;
+
+              case 4:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
+    },
+    loadTujuanMakananNon: function loadTujuanMakananNon() {
+      var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        var tujuannya;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://localhost:8000/api/tujuanmakanannon');
+
+              case 2:
+                tujuannya = _context4.sent;
+                _this4.tujuan = tujuannya.data;
+
+              case 4:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }))();
+    },
+    loadTujuanMakanan: function loadTujuanMakanan() {
+      var _this5 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+        var tujuannya;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                _context5.next = 2;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://localhost:8000/api/tujuanmakanan');
+
+              case 2:
+                tujuannya = _context5.sent;
+                _this5.tujuan = tujuannya.data;
+
+              case 4:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5);
+      }))();
+    },
+    getTarif: function getTarif() {
+      var _this6 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee6() {
+        var tarif_dokumennya, tarif_non_makanannya, tarif_makanannya;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee6$(_context6) {
+          while (1) {
+            switch (_context6.prev = _context6.next) {
+              case 0:
+                if (!(_this6.id_kategori === 3)) {
+                  _context6.next = 8;
+                  break;
+                }
+
+                _context6.next = 3;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://localhost:8000/api/tarifdokumen', {
+                  params: {
+                    asal: _this6.id_asal,
+                    tujuan: _this6.id_tujuan,
+                    berat: _this6.id_berat
+                  }
+                });
+
+              case 3:
+                tarif_dokumennya = _context6.sent;
+                _this6.tarif_berat = tarif_dokumennya.data;
+                _this6.total = _this6.tarif_berat[0].harga;
+                _context6.next = 21;
+                break;
+
+              case 8:
+                if (!(_this6.id_kategori === 1)) {
+                  _context6.next = 16;
+                  break;
+                }
+
+                _context6.next = 11;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://localhost:8000/api/tarifnonmakanan', {
+                  params: {
+                    asal: _this6.id_asal,
+                    tujuan: _this6.id_tujuan
+                  }
+                });
+
+              case 11:
+                tarif_non_makanannya = _context6.sent;
+                _this6.tarif_non_makanan = tarif_non_makanannya.data;
+                _this6.total = parseInt(_this6.tarif_non_makanan[0].harga_awal) + parseInt(_this6.tarif_non_makanan[0].harga_selanjutnya) * (parseInt(_this6.berat_paket) - 1);
+                _context6.next = 21;
+                break;
+
+              case 16:
+                _context6.next = 18;
+                return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('http://localhost:8000/api/tarifmakanan', {
+                  params: {
+                    asal: _this6.id_asal,
+                    tujuan: _this6.id_tujuan
+                  }
+                });
+
+              case 18:
+                tarif_makanannya = _context6.sent;
+                _this6.tarif_makanan = tarif_makanannya.data;
+                _this6.total = parseInt(_this6.tarif_makanan[0].harga_awal) + parseInt(_this6.tarif_makanan[0].harga_selanjutnya) * (parseInt(_this6.berat_paket) - 1);
+
+              case 21:
+              case "end":
+                return _context6.stop();
+            }
+          }
+        }, _callee6);
+      }))();
+    },
+    paketDipilih: function paketDipilih() {
+      this.sudah_dipilih = true;
+
+      if (this.id_kategori === 3) {
+        this.berat_dokumen = true;
+        this.berat_makanan = false;
+        this.loadTujuanDok();
+      } else if (this.id_kategori === 2) {
+        this.berat_makanan = true;
+        this.berat_dokumen = false;
+        this.loadTujuanMakananNon();
+      } else {
+        this.berat_dokumen = false;
+        this.berat_makanan = true;
+        this.loadTujuanMakanan();
+      }
     }
   }
 });
@@ -80582,83 +80793,234 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "b-container",
+    { staticClass: "mt-5" },
     [
       _c(
-        "b-form-row",
+        "h1",
+        {
+          staticClass: "mb-3",
+          staticStyle: { "text-align": "center", "font-size": "40px" }
+        },
+        [_vm._v("Cek Tarif Pengiriman")]
+      ),
+      _vm._v(" "),
+      _c(
+        "b-row",
+        { staticClass: "mt-5" },
         [
-          _c("h3", [_vm._v("Pilih Jenis Paket")]),
+          _c("b-col", { attrs: { col: "", md: "1" } }),
           _vm._v(" "),
-          _c("b-form-select", {
-            attrs: {
-              options: _vm.kategori,
-              "value-field": "id",
-              "text-field": "kategori"
-            },
-            model: {
-              value: _vm.id_kategori,
-              callback: function($$v) {
-                _vm.id_kategori = $$v
-              },
-              expression: "id_kategori"
-            }
-          }),
+          _c(
+            "b-col",
+            { attrs: { col: "", md: "4" } },
+            [
+              _c(
+                "b-row",
+                [
+                  _c("h5", [_vm._v("Pilih Jenis Paket")]),
+                  _vm._v(" "),
+                  _c("b-form-select", {
+                    attrs: {
+                      options: _vm.kategori,
+                      "value-field": "id",
+                      "text-field": "kategori"
+                    },
+                    on: { change: _vm.paketDipilih },
+                    model: {
+                      value: _vm.id_kategori,
+                      callback: function($$v) {
+                        _vm.id_kategori = $$v
+                      },
+                      expression: "id_kategori"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm.sudah_dipilih
+                ? _c(
+                    "b-row",
+                    { staticClass: "mt-3" },
+                    [
+                      _c("h5", [_vm._v("Pilih Asal Pengiriman")]),
+                      _vm._v(" "),
+                      _c("b-form-select", {
+                        attrs: {
+                          options: _vm.asal_pengiriman,
+                          "value-field": "id",
+                          "text-field": "nama_tempat"
+                        },
+                        model: {
+                          value: _vm.id_asal,
+                          callback: function($$v) {
+                            _vm.id_asal = $$v
+                          },
+                          expression: "id_asal"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.sudah_dipilih
+                ? _c(
+                    "b-row",
+                    { staticClass: "mt-3" },
+                    [
+                      _c("h5", [_vm._v("Pilih Tujuan Pengiriman")]),
+                      _vm._v(" "),
+                      _c("model-list-select", {
+                        attrs: {
+                          list: _vm.tujuan,
+                          "option-value": "id",
+                          "option-text": "nama_tempat"
+                        },
+                        model: {
+                          value: _vm.id_tujuan,
+                          callback: function($$v) {
+                            _vm.id_tujuan = $$v
+                          },
+                          expression: "id_tujuan"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.berat_makanan
+                ? _c(
+                    "b-row",
+                    { staticClass: "mt-3" },
+                    [
+                      _c("h5", [_vm._v("Masukan Berat Paket (Kg)")]),
+                      _vm._v(" "),
+                      _c("b-form-input", {
+                        attrs: {
+                          id: "berat-paket",
+                          type: "text",
+                          required: ""
+                        },
+                        model: {
+                          value: _vm.berat_paket,
+                          callback: function($$v) {
+                            _vm.berat_paket = $$v
+                          },
+                          expression: "berat_paket"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.berat_dokumen
+                ? _c(
+                    "b-row",
+                    { staticClass: "mt-3" },
+                    [
+                      _c("h5", [_vm._v("Pilih Berat Dokumen (Kg)")]),
+                      _vm._v(" "),
+                      _c("b-form-select", {
+                        attrs: {
+                          options: _vm.berat,
+                          "value-field": "id",
+                          "text-field": "berat"
+                        },
+                        on: { change: _vm.paketDipilih },
+                        model: {
+                          value: _vm.id_berat,
+                          callback: function($$v) {
+                            _vm.id_berat = $$v
+                          },
+                          expression: "id_berat"
+                        }
+                      })
+                    ],
+                    1
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.sudah_dipilih
+                ? _c(
+                    "b-row",
+                    { staticClass: "mt-3" },
+                    [
+                      _c(
+                        "b-button",
+                        {
+                          attrs: { type: "button", variant: "danger" },
+                          on: { click: _vm.getTarif }
+                        },
+                        [_vm._v("Cari")]
+                      )
+                    ],
+                    1
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.sudah_dipilih
+                ? _c("b-row", [
+                    _vm._v(
+                      "\n                " +
+                        _vm._s(_vm.total) +
+                        "\n            "
+                    )
+                  ])
+                : _vm._e()
+            ],
+            1
+          ),
           _vm._v(" "),
-          _c("h3", [_vm._v("Pilih Asal Pengiriman")]),
+          _c("b-col", { attrs: { col: "", md: "1" } }),
           _vm._v(" "),
-          _c("b-form-select", {
-            attrs: {
-              options: _vm.asal_pengiriman,
-              "value-field": "id",
-              "text-field": "nama_tempat"
-            },
-            model: {
-              value: _vm.id_asal,
-              callback: function($$v) {
-                _vm.id_asal = $$v
-              },
-              expression: "id_asal"
-            }
-          }),
-          _vm._v(" "),
-          _c("h3", [_vm._v("Pilih Tujuan Pengiriman")]),
-          _vm._v(" "),
-          _c("model-list-select", {
-            attrs: {
-              list: _vm.tujuan_makanan_non,
-              "option-value": "id",
-              "option-text": "nama_tempat",
-              placeholder: "Pilih Tujuan"
-            },
-            model: {
-              value: _vm.id_tujuan_makanan_non,
-              callback: function($$v) {
-                _vm.id_tujuan_makanan_non = $$v
-              },
-              expression: "id_tujuan_makanan_non"
-            }
-          }),
-          _vm._v(" "),
-          _c("h3", [_vm._v("Masukan Berat Paket")]),
-          _vm._v(" "),
-          _c("b-form-input", {
-            attrs: { id: "berat-paket", type: "text", required: "" },
-            model: {
-              value: _vm.berat_paket,
-              callback: function($$v) {
-                _vm.berat_paket = $$v
-              },
-              expression: "berat_paket"
-            }
-          })
+          _c(
+            "b-col",
+            { attrs: { col: "", md: "5" } },
+            [
+              _c(
+                "b-row",
+                [
+                  _c("b-col", [
+                    _c("h6", [_vm._v("Asal")]),
+                    _vm._v(" "),
+                    _c("h3", [_vm._v("Jakarta")])
+                  ]),
+                  _vm._v(" "),
+                  _c("b-col", [
+                    _c("h6", [_vm._v("Tujuan")]),
+                    _vm._v(" "),
+                    _c("h3", [_vm._v("Jepang")])
+                  ]),
+                  _vm._v(" "),
+                  _c("b-col", [
+                    _c("h6", [_vm._v("Berat (Kg)")]),
+                    _vm._v(" "),
+                    _c("h3", [_vm._v("3")])
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-row",
+                { staticClass: "mt-4" },
+                [
+                  _c("b-col", [
+                    _c("h4", [_c("b-icon-bag-fill")], 1),
+                    _vm._v(" "),
+                    _c("h5", [_vm._v("Kosmetik, Herbal, dan Makanan")])
+                  ])
+                ],
+                1
+              )
+            ],
+            1
+          )
         ],
         1
-      ),
-      _vm._v(
-        "\n\n\n        " +
-          _vm._s(_vm.id_kategori) +
-          "\n        " +
-          _vm._s(_vm.id_tujuan_makanan_non) +
-          "\n"
       )
     ],
     1
