@@ -29,7 +29,9 @@ Route::get('tujuanmakanannon', 'API\BaseDataController@getTujuanMakananNonMakana
 Route::get('tujuanmakanan', 'API\BaseDataController@getTujuanMakanan');
 Route::get('kategori', 'API\BaseDataController@getKategori');
 
-Route::get('find/asal/{id}', 'API\BaseDataController@findAsalPengiriman');
-Route::get('find/berat/{id}', 'API\BaseDataController@findBeratDokumen');
-Route::get('find/tujuandokumen/{id}', 'API\BaseDataController@findTujuanDokumen');
-Route::get('find/tujuanmakanan/{id}', 'API\BaseDataController@findTujuanMakananNonMakanan');
+Route::get('find/asal', 'API\BaseDataController@findAsalPengiriman');
+Route::get('find/berat', 'API\BaseDataController@findBeratDokumen');
+Route::get('find/tujuandokumen', 'API\BaseDataController@findTujuanDokumen');
+Route::get('find/tujuanmakanan', 'API\BaseDataController@findTujuanMakanan');
+Route::get('find/tujuannonmakanan', 'API\BaseDataController@findTujuanNonMakanan');
+Route::get('find/kategori', 'API\BaseDataController@findKategori');

@@ -50,36 +50,51 @@ class BaseDataController extends Controller
         return response()->json($kategori->toArray());
     }
 
+    public function findKategori(Request $request)
+    {
+        $kategori = DB::table('kategori_paket')
+            ->select('kategori')
+            ->where('id', $request['id'])->get();
+        return response()->json($kategori->toArray());
+    }
 
-    public function findAsalPengiriman($id)
+    public function findAsalPengiriman(Request $request)
     {
         $asal_pengiriman = DB::table('asal_pengiriman')
             ->select('nama_tempat')
-            ->where('id', $id)->get();
+            ->where('id', $request['id'])->get();
         return response()->json($asal_pengiriman->toArray());
     }
 
-    public function findBeratDokumen($id)
+    public function findBeratDokumen(Request $request)
     {
         $berat_dokumen = DB::table('berat_dokumen')
             ->select('berat')
-            ->where('id', $id)->get();
+            ->where('id', $request['id'])->get();
         return response()->json($berat_dokumen->toArray());
     }
 
-    public function findTujuanDokumen($id)
+    public function findTujuanDokumen(Request $request)
     {
         $tujuan_dokumen = DB::table('tujuan_dokumen')
             ->select('nama_tempat')
-            ->where('id', $id)->get();
+            ->where('id', $request['id'])->get();
         return response()->json($tujuan_dokumen->toArray());
     }
 
-    public function findTujuanMakananNonMakanan($id)
+    public function findTujuanMakanan(Request $request)
+    {
+        $tujuan_makanan_non_makanan = DB::table('tujuan_makanan')
+            ->select('nama_tempat')
+            ->where('id', $request['id'])->get();
+        return response()->json($tujuan_makanan_non_makanan->toArray());
+    }
+
+    public function findTujuanNonMakanan(Request $request)
     {
         $tujuan_makanan_non_makanan = DB::table('tujuan_makanan_non_makanan')
             ->select('nama_tempat')
-            ->where('id', $id)->get();
+            ->where('id', $request['id'])->get();
         return response()->json($tujuan_makanan_non_makanan->toArray());
     }
 
